@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:viewmodels="clr-namespace:NemesisLauncher.ViewModels"
+			 xmlns:views="clr-namespace:NemesisLauncher.Views"
+			 x:Class="NemesisLauncher.Views.MainPage"
+			 x:DataType="viewmodels:MainViewModel"
+			 NavigationPage.HasNavigationBar="False"
+			 BackgroundColor="{StaticResource BackgroundDeep}">
+
+	<Grid>
+		<!-- Background Slideshow Layer -->
+		<Grid>
+			<Image x:Name="BackgroundImageA"
+				   Aspect="AspectFill"
+				   Opacity="1" />
+			<Image x:Name="BackgroundImageB"
+				   Aspect="AspectFill"
+				   Opacity="0" />
+			<!-- Dark gradient overlay with purple tint -->
+			<BoxView Color="{StaticResource OverlayDark}" />
+		</Grid>
+
+		<!-- Main Layout: Sidebar + Content -->
+		<Grid ColumnDefinitions="220,*">
+
+			<!-- Sidebar -->
+			<Border Grid.Column="0"
+					BackgroundColor="#E60F0F1A"
+					StrokeThickness="0"
+					Padding="0">
+				<Grid RowDefinitions="Auto,*,Auto"
+					  Padding="16">
+
+					<!-- Logo/Brand -->
+					<VerticalStackLayout Grid.Row="0"
+										 Spacing="4"
+										 Padding="0,20,0,30">
+						<Label Text="NEMESIS"
+							   FontFamily="OpenSansSemibold"
+							   FontSize="26"
+							   TextColor="{StaticResource NemesisPurpleLight}"
+							   HorizontalOptions="Start"
+							   CharacterSpacing="3" />
+						<Label Text="WotLK 3.3.5a"
+							   FontSize="11"
+							   TextColor="{StaticResource TextMuted}"
+							   HorizontalOptions="Start" />
+					</VerticalStackLayout>
+
+					<!-- Navigation -->
+					<VerticalStackLayout Grid.Row="1"
+										 Spacing="4">
+						<Button x:Name="NewsTabButton"
+								Text="News"
+								Style="{StaticResource SidebarButtonActive}"
+								Command="{Binding SelectTabCommand}"
+								CommandParameter="0"
+								Clicked="OnTabClicked" />
+						<Button x:Name="GameTabButton"
+								Text="Game"
+								Style="{StaticResource SidebarButton}"
+								Command="{Binding SelectTabCommand}"
+								CommandParameter="1"
+								Clicked="OnTabClicked" />
+					</VerticalStackLayout>
+
+					<!-- Bottom Actions -->
+					<VerticalStackLayout Grid.Row="2"
+										 Spacing="4"
+										 Padding="0,0,0,10">
+						<Button Text="Open Logs"
+								Style="{StaticResource SidebarButton}"
+								FontSize="12"
+								Command="{Binding OpenLogFolderCommand}" />
+					</VerticalStackLayout>
+				</Grid>
+			</Border>
+
+			<!-- Content Area -->
+			<Grid Grid.Column="1">
+				<views:NewsView x:Name="NewsViewContent"
+								IsVisible="True" />
+				<views:GameView x:Name="GameViewContent"
+								IsVisible="False" />
+			</Grid>
+		</Grid>
+	</Grid>
+</ContentPage>

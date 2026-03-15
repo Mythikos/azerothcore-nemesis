@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:viewmodels="clr-namespace:NemesisLauncher.ViewModels"
+			 xmlns:models="clr-namespace:NemesisLauncher.Models"
+			 x:Class="NemesisLauncher.Views.NewsView"
+			 x:DataType="viewmodels:NewsViewModel">
+
+	<Grid Padding="30,20">
+		<Grid RowDefinitions="Auto,*">
+			<Label Grid.Row="0"
+				   Text="NEWS"
+				   Style="{StaticResource HeadlineLabel}"
+				   Padding="0,10,0,20" />
+
+			<!-- Loading Indicator -->
+			<ActivityIndicator Grid.Row="1"
+							   IsRunning="{Binding IsLoading}"
+							   IsVisible="{Binding IsLoading}"
+							   HorizontalOptions="Center"
+							   VerticalOptions="Center" />
+
+			<!-- Error Message -->
+			<Label Grid.Row="1"
+				   Text="{Binding ErrorMessage}"
+				   IsVisible="{Binding HasError}"
+				   TextColor="{StaticResource TextSecondary}"
+				   FontSize="16"
+				   HorizontalOptions="Center"
+				   VerticalOptions="Center" />
+
+			<!-- News Items -->
+			<CollectionView Grid.Row="1"
+							ItemsSource="{Binding NewsItems}"
+							IsVisible="{Binding IsLoading, Converter={StaticResource BoolInvertConverter}}"
+							SelectionMode="None">
+				<CollectionView.ItemsLayout>
+					<LinearItemsLayout Orientation="Vertical" ItemSpacing="12" />
+				</CollectionView.ItemsLayout>
+				<CollectionView.ItemTemplate>
+					<DataTemplate x:DataType="models:NewsItem">
+						<Border Style="{StaticResource CardFrame}">
+							<Grid ColumnDefinitions="80,*" ColumnSpacing="16">
+								<!-- Thumbnail -->
+								<Border Grid.Column="0"
+										StrokeShape="RoundRectangle 6"
+										StrokeThickness="0"
+										BackgroundColor="{StaticResource SurfaceLight}"
+										HeightRequest="80"
+										WidthRequest="80">
+									<Image Source="{Binding ThumbnailUrl}"
+										   Aspect="AspectFill"
+										   IsVisible="{Binding ThumbnailUrl, Converter={StaticResource IsNotNullConverter}}" />
+								</Border>
+								<!-- Content -->
+								<VerticalStackLayout Grid.Column="1"
+													 Spacing="4"
+													 VerticalOptions="Center">
+									<Label Text="{Binding Title}"
+										   FontFamily="OpenSansSemibold"
+										   FontSize="16"
+										   TextColor="{StaticResource TextPrimary}"
+										   LineBreakMode="TailTruncation"
+										   MaxLines="1" />
+									<Label Text="{Binding Date, StringFormat='{0:MMMM d, yyyy}'}"
+										   FontSize="12"
+										   TextColor="{StaticResource NemesisPurpleLight}" />
+									<Label Text="{Binding Summary}"
+										   FontSize="13"
+										   TextColor="{StaticResource TextSecondary}"
+										   LineBreakMode="TailTruncation"
+										   MaxLines="2" />
+									<Button Text="Read More"
+											Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:NewsViewModel}}, Path=OpenNewsItemCommand}"
+											CommandParameter="{Binding}"
+											FontSize="10"
+											HeightRequest="20"
+											MinimumHeightRequest="20"
+											Padding="8,0"
+											Margin="0,2,0,0"
+											HorizontalOptions="Start"
+											BackgroundColor="{StaticResource NemesisPurple}"
+											TextColor="{StaticResource TextPrimary}"
+											BorderWidth="0"
+											CornerRadius="4" />
+								</VerticalStackLayout>
+							</Grid>
+						</Border>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</Grid>
+	</Grid>
+</ContentView>

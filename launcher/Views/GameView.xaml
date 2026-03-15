@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:viewmodels="clr-namespace:NemesisLauncher.ViewModels"
+			 x:Class="NemesisLauncher.Views.GameView"
+			 x:DataType="viewmodels:GameViewModel">
+
+	<Grid Padding="30,20">
+		<Grid RowDefinitions="*,Auto,Auto,Auto">
+
+			<!-- Status / Version Info -->
+			<VerticalStackLayout Grid.Row="0"
+								 VerticalOptions="End"
+								 Spacing="8"
+								 Padding="0,0,0,20">
+				<Label Text="{Binding ManifestVersion, StringFormat='Version {0}'}"
+					   FontSize="13"
+					   TextColor="{StaticResource TextMuted}"
+					   IsVisible="{Binding ManifestVersion, Converter={StaticResource IsNotNullConverter}}" />
+				<Label Text="{Binding StatusMessage}"
+					   FontSize="15"
+					   TextColor="{StaticResource TextSecondary}" />
+			</VerticalStackLayout>
+
+			<!-- Progress Section -->
+			<Grid Grid.Row="1"
+				  IsVisible="{Binding IsProgressVisible}"
+				  RowDefinitions="Auto,Auto,Auto"
+				  Padding="0,0,0,16">
+
+				<!-- Progress Bar -->
+				<Border Grid.Row="0"
+						BackgroundColor="{StaticResource Surface}"
+						StrokeThickness="0"
+						StrokeShape="RoundRectangle 4"
+						HeightRequest="8"
+						Padding="0">
+					<ProgressBar Progress="{Binding DownloadPercentage, Converter={StaticResource PercentToDecimalConverter}}"
+								 ProgressColor="{StaticResource NemesisPurple}"
+								 HeightRequest="8" />
+				</Border>
+
+				<!-- Progress Details -->
+				<Grid Grid.Row="1"
+					  ColumnDefinitions="*,Auto"
+					  Padding="0,6,0,0">
+					<Label Grid.Column="0"
+						   Text="{Binding DownloadStatus}"
+						   FontSize="12"
+						   TextColor="{StaticResource TextSecondary}" />
+					<Label Grid.Column="1"
+						   Text="{Binding ActiveFilesDisplay, StringFormat='Downloading: {0}'}"
+						   FontSize="12"
+						   TextColor="{StaticResource TextMuted}"
+						   HorizontalOptions="End"
+						   LineBreakMode="TailTruncation"
+						   MaximumWidthRequest="400" />
+				</Grid>
+
+				<!-- File Count -->
+				<Label Grid.Row="2"
+					   Text="{Binding FilesCompleted, StringFormat='Files: {0}'}"
+					   FontSize="11"
+					   TextColor="{StaticResource TextMuted}"
+					   Padding="0,2,0,0">
+					<Label.FormattedText>
+						<FormattedString>
+							<Span Text="Files: " />
+							<Span Text="{Binding FilesCompleted}" />
+							<Span Text=" / " />
+							<Span Text="{Binding TotalFiles}" />
+						</FormattedString>
+					</Label.FormattedText>
+				</Label>
+			</Grid>
+
+			<!-- Primary Action Button -->
+			<Grid Grid.Row="2"
+				  ColumnDefinitions="Auto,*,Auto"
+				  ColumnSpacing="16"
+				  Padding="0,0,0,16">
+				<Button Grid.Column="0"
+						Text="{Binding PrimaryButtonText}"
+						IsEnabled="{Binding IsPrimaryButtonEnabled}"
+						Command="{Binding PrimaryActionCommand}"
+						Style="{StaticResource PrimaryActionButton}" />
+
+				<!-- Install Path -->
+				<Label Grid.Column="1"
+					   Text="{Binding InstallPath}"
+					   FontSize="12"
+					   TextColor="{StaticResource TextMuted}"
+					   VerticalOptions="Center"
+					   LineBreakMode="MiddleTruncation" />
+				<Button Grid.Column="2"
+						Text="Change"
+						Style="{StaticResource SecondaryButton}"
+						Command="{Binding ChangeInstallPathCommand}"
+						IsVisible="{Binding CanChangeInstallPath}" />
+			</Grid>
+
+			<!-- Secondary Actions -->
+			<HorizontalStackLayout Grid.Row="3"
+								   Spacing="10"
+								   IsVisible="{Binding IsSecondaryActionsVisible}"
+								   Padding="0,0,0,20">
+				<Button Text="Verify Files"
+						Style="{StaticResource SecondaryButton}"
+						IsVisible="{Binding CanVerifyFiles}"
+						Command="{Binding VerifyFilesCommand}" />
+				<Button Text="Uninstall"
+						Style="{StaticResource SecondaryButton}"
+						IsVisible="{Binding CanUninstall}"
+						Command="{Binding UninstallCommand}" />
+				<Button Text="Cancel"
+						Style="{StaticResource SecondaryButton}"
+						IsVisible="{Binding CanCancel}"
+						Command="{Binding CancelDownloadCommand}" />
+			</HorizontalStackLayout>
+		</Grid>
+	</Grid>
+</ContentView>

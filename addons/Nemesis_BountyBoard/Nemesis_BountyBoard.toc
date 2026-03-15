@@ -1,0 +1,9 @@
+## Interface: 30300
+## Title: Nemesis Bounty Board
+## Notes: Displays the top nemesis threats, Umbral Moon schedule, and personal grudge list.
+## Author: Nemesis
+## Version: 2.0
+
+TraitData.lua
+Core.lua
+UI.lua

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+	<!-- Nemesis Brand Colors -->
+	<Color x:Key="NemesisPurple">#7853AA</Color>
+	<Color x:Key="NemesisPurpleLight">#9B7FCC</Color>
+	<Color x:Key="NemesisPurpleDark">#5C3D8F</Color>
+	<Color x:Key="NemesisBlue">#5B8DEF</Color>
+
+	<!-- Background Colors -->
+	<Color x:Key="BackgroundDark">#1A1A2E</Color>
+	<Color x:Key="BackgroundDeep">#0F0F1A</Color>
+	<Color x:Key="Surface">#242438</Color>
+	<Color x:Key="SurfaceLight">#2E2E45</Color>
+	<Color x:Key="SurfaceHover">#363650</Color>
+
+	<!-- Text Colors -->
+	<Color x:Key="TextPrimary">#FFFFFF</Color>
+	<Color x:Key="TextSecondary">#B0B0C0</Color>
+	<Color x:Key="TextMuted">#6E6E80</Color>
+
+	<!-- Semantic Colors -->
+	<Color x:Key="Success">#2ECC71</Color>
+	<Color x:Key="Error">#E74C3C</Color>
+	<Color x:Key="Warning">#F39C12</Color>
+
+	<!-- Overlay -->
+	<Color x:Key="OverlayDark">#CC0F0F1A</Color>
+	<Color x:Key="OverlayPurple">#401A1A2E</Color>
+
+	<!-- Mapped to MAUI defaults -->
+	<Color x:Key="Primary">#7853AA</Color>
+	<Color x:Key="PrimaryDark">#5C3D8F</Color>
+	<Color x:Key="Secondary">#5B8DEF</Color>
+	<Color x:Key="White">#FFFFFF</Color>
+	<Color x:Key="Black">#000000</Color>
+	<Color x:Key="Gray100">#E1E1E1</Color>
+	<Color x:Key="Gray200">#C8C8C8</Color>
+	<Color x:Key="Gray300">#ACACAC</Color>
+	<Color x:Key="Gray400">#919191</Color>
+	<Color x:Key="Gray500">#6E6E6E</Color>
+	<Color x:Key="Gray600">#404040</Color>
+	<Color x:Key="Gray900">#212121</Color>
+	<Color x:Key="Gray950">#141414</Color>
+
+	<SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
+	<SolidColorBrush x:Key="NemesisPurpleBrush" Color="{StaticResource NemesisPurple}" />
+	<SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}" />
+	<SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource Surface}" />
+</ResourceDictionary>

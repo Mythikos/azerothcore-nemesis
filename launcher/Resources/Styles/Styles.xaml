@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+	<Style TargetType="Page" ApplyToDerivedTypes="True">
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="BackgroundColor" Value="{StaticResource BackgroundDeep}" />
+	</Style>
+
+	<Style TargetType="Label">
+		<Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+		<Setter Property="BackgroundColor" Value="Transparent" />
+		<Setter Property="FontFamily" Value="OpenSansRegular" />
+		<Setter Property="FontSize" Value="14" />
+	</Style>
+
+	<Style TargetType="Button">
+		<Setter Property="TextColor" Value="{StaticResource White}" />
+		<Setter Property="BackgroundColor" Value="{StaticResource NemesisPurple}" />
+		<Setter Property="FontFamily" Value="OpenSansSemibold" />
+		<Setter Property="FontSize" Value="14" />
+		<Setter Property="BorderWidth" Value="0" />
+		<Setter Property="CornerRadius" Value="6" />
+		<Setter Property="Padding" Value="16,10" />
+		<Setter Property="MinimumHeightRequest" Value="44" />
+		<Setter Property="MinimumWidthRequest" Value="44" />
+		<Setter Property="VisualStateManager.VisualStateGroups">
+			<VisualStateGroupList>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal" />
+					<VisualState x:Name="Disabled">
+						<VisualState.Setters>
+							<Setter Property="TextColor" Value="{StaticResource TextMuted}" />
+							<Setter Property="BackgroundColor" Value="{StaticResource SurfaceLight}" />
+						</VisualState.Setters>
+					</VisualState>
+					<VisualState x:Name="PointerOver">
+						<VisualState.Setters>
+							<Setter Property="BackgroundColor" Value="{StaticResource NemesisPurpleLight}" />
+						</VisualState.Setters>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateGroupList>
+		</Setter>
+	</Style>
+
+	<Style TargetType="ProgressBar">
+		<Setter Property="ProgressColor" Value="{StaticResource NemesisPurple}" />
+	</Style>
+
+	<Style TargetType="ActivityIndicator">
+		<Setter Property="Color" Value="{StaticResource NemesisPurple}" />
+	</Style>
+
+	<Style x:Key="SidebarButton" TargetType="Button">
+		<Setter Property="BackgroundColor" Value="Transparent" />
+		<Setter Property="TextColor" Value="{StaticResource TextSecondary}" />
+		<Setter Property="FontFamily" Value="OpenSansSemibold" />
+		<Setter Property="FontSize" Value="15" />
+		<Setter Property="CornerRadius" Value="6" />
+		<Setter Property="Padding" Value="16,12" />
+		<Setter Property="HorizontalOptions" Value="Fill" />
+		<Setter Property="BorderWidth" Value="0" />
+	</Style>
+
+	<Style x:Key="SidebarButtonActive" TargetType="Button">
+		<Setter Property="BackgroundColor" Value="{StaticResource SurfaceLight}" />
+		<Setter Property="TextColor" Value="{StaticResource NemesisPurpleLight}" />
+		<Setter Property="FontFamily" Value="OpenSansSemibold" />
+		<Setter Property="FontSize" Value="15" />
+		<Setter Property="CornerRadius" Value="6" />
+		<Setter Property="Padding" Value="16,12" />
+		<Setter Property="HorizontalOptions" Value="Fill" />
+		<Setter Property="BorderWidth" Value="0" />
+	</Style>
+
+	<Style x:Key="PrimaryActionButton" TargetType="Button">
+		<Setter Property="BackgroundColor" Value="{StaticResource NemesisPurple}" />
+		<Setter Property="TextColor" Value="{StaticResource White}" />
+		<Setter Property="FontFamily" Value="OpenSansSemibold" />
+		<Setter Property="FontSize" Value="18" />
+		<Setter Property="CornerRadius" Value="8" />
+		<Setter Property="Padding" Value="40,14" />
+		<Setter Property="MinimumWidthRequest" Value="200" />
+		<Setter Property="MinimumHeightRequest" Value="52" />
+		<Setter Property="VisualStateManager.VisualStateGroups">
+			<VisualStateGroupList>
+				<VisualStateGroup x:Name="CommonStates">
+					<VisualState x:Name="Normal" />
+					<VisualState x:Name="Disabled">
+						<VisualState.Setters>
+							<Setter Property="TextColor" Value="{StaticResource TextMuted}" />
+							<Setter Property="BackgroundColor" Value="{StaticResource SurfaceLight}" />
+						</VisualState.Setters>
+					</VisualState>
+				</VisualStateGroup>
+			</VisualStateGroupList>
+		</Setter>
+	</Style>
+
+	<Style x:Key="SecondaryButton" TargetType="Button">
+		<Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+		<Setter Property="TextColor" Value="{StaticResource TextSecondary}" />
+		<Setter Property="FontFamily" Value="OpenSansRegular" />
+		<Setter Property="FontSize" Value="13" />
+		<Setter Property="CornerRadius" Value="6" />
+		<Setter Property="Padding" Value="12,8" />
+	</Style>
+
+	<Style x:Key="HeadlineLabel" TargetType="Label">
+		<Setter Property="TextColor" Value="{StaticResource TextPrimary}" />
+		<Setter Property="FontSize" Value="28" />
+		<Setter Property="FontFamily" Value="OpenSansSemibold" />
+	</Style>
+
+	<Style x:Key="SubHeadlineLabel" TargetType="Label">
+		<Setter Property="TextColor" Value="{StaticResource TextSecondary}" />
+		<Setter Property="FontSize" Value="16" />
+		<Setter Property="FontFamily" Value="OpenSansRegular" />
+	</Style>
+
+	<Style x:Key="CardFrame" TargetType="Border">
+		<Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+		<Setter Property="Stroke" Value="{StaticResource SurfaceLight}" />
+		<Setter Property="StrokeThickness" Value="1" />
+		<Setter Property="StrokeShape" Value="RoundRectangle 8" />
+		<Setter Property="Padding" Value="16" />
+	</Style>
+
+</ResourceDictionary>
