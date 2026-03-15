@@ -137,7 +137,7 @@ A few things that might be interesting if you're building AzerothCore modules:
 
 ## DBC / Client Patch
 
-This project was developed against a clean 3.3.5a (12340) client sourced from [this gist](https://gist.github.com/devovh/803c1054e6b04ac2059a8884320c3dd2). It does **not** include the client files or the modified DBC files. These are derived from Blizzard's proprietary data and are not distributed here.
+This project was developed against a clean 3.3.5a (12340) client sourced from [this gist](https://gist.github.com/devovh/803c1054e6b04ac2059a8884320c3dd2) and does **not** include the client files or the modified DBC files. These are derived from Blizzard's proprietary data and are not distributed here.
 
 The `tools/` directory contains the deployment pipeline and documentation of all custom spell configurations. Anyone with access to [stoneharry's WoW Spell Editor](https://github.com/stoneharry/WoW-Spell-Editor) and the standard 3.3.5a DBC files can recreate the entries. The full spell allocation table is in the [Design Document](Design%20Document.md).
 
