@@ -159,6 +159,7 @@ Two systems from the original design were never implemented but are fully specce
 
 - **Power Stacks** - A permanent stat progression system where killing high-threat nemeses grants stacking stat buffs with roguelike-style rarity rolls (three random offerings per kill, common through epic). Dying wipes all stacks. This was the intended risk/reward endgame loop tying long-term player investment to the nemesis system.
 - **Purge Events** - A weekly culling mechanic to prevent world oversaturation. Lowest-threat nemeses get pruned while Bounty Board top 10 entries stay immune, paired with a narrative server announcement.
+- **Launcher** - A launcher project for downloading and installing the modified client if this were to be deployed into a production state. This launcher is largly untested, but included seeing a little bit of work went into it. 
 
 Both are interesting problems if anyone wants to pick them up.
 
